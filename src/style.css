@@ -1,0 +1,38 @@
+.container {
+    margin: 40px;
+    padding: 20px;
+    max-width: 1000px;
+    max-height: 815px;
+    border-color: #404c58;
+    font-family: 'Sora', sans-serif;
+}
+
+.rounded-circle {
+    display: block;
+    margin: 50px 0px 0px 0px;
+    border-radius: 50%;
+    width: 450px;
+    height: 450px;
+    border-style: solid;
+    border-color: #404c58;
+}
+
+#dailyWeatherHeading {
+    padding-top: 40px;
+}
+
+.blue-drop-pin {
+    padding: 0px;
+}
+
+#TodaysDate {
+    text-align: center;
+}
+
+#realWeatherInfo {
+    text-align: center;
+}
+
+#column2 {
+    padding: 0px 30px 10px 20px;
+}
