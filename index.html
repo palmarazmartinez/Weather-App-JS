@@ -9,14 +9,18 @@
     <script src="https://kit.fontawesome.com/599f0ec957.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Weather App</title>
 </head>
 
 <body>
     <div class="container border border-secondary rounded-2">
         <div class="row">
-            <div class="col" id="TodaysDate">
-                <u>MONDAY</u> <br /> February 1, 2021 <br /> 10:30 PM
+            <div class="col">
+                <p class="todaysDate">
+                    MONDAY <br /> February 1, 2021 <br />
+                </p>
+                <p class="displayTime">10:30 PM</p>
             </div>
             <div class="col-sm-8">
                 <form id="search-location">
@@ -36,19 +40,19 @@
         <div class="row">
             <div class="col" id="realWeatherInfo">
                 <div class="rounded-circle">
-                    <h1 class="currentLocation">Coppell</h1>
+                    <h1 class="currentLocation"></h1>
                     <p class="currentTemp">
-                        <a id="real-temp">45</a>
+                        <a id="real-temp"></a>
                         <small class="fs-3 fw-lighter">
                 <a href="#" id="fahrenheit-link"> °F </a> |
                 <a href="#" id="celsius-link">°C</a></small
               >
             </p>
             <i class="fas fa-cloud-sun fa-7x"></i>
-            <p class="tempPhraseMain">
-              <br />
-              <i class="fas fa-tint"></i>Humidity: 3<br />
-              <i class="fas fa-wind"></i>Wind: 2 <br />
+            <p id="describeWeather"></p>
+            <p class="temperatureInfo">
+              <i class="fas fa-tint" id="humidity"></i><br />
+              <i class="fas fa-wind" id="wind"></i><br />
             </p>
           </div>
         </div>
@@ -57,11 +61,18 @@
           <h1 class="dailyWeatherHeading">The Next Six Days</h1>
           <div class="row border rounded-2">
             <div class="col-6 col-md-4">
-              <p>TUESDAY</p>
-              <p>February 2, 2021</p>
+              <p class="next-day">TUESDAY</p>
+              <p class="next-date">February 2, 2021</p>
             </div>
-            <div class="col-6 col-sm-3"><i class="fas fa-sun fa-3x"></i></div>
+            <div class="col-6 col-sm-3">
+              <i class="fas fa-sun fa-3x"></i>
+              <p>
+                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
+                <a href="#" class="daily-celsius-link">°C</a>
+              </p>
+            </div>
             <div class="col-6 col-md-5">
+              <p class="daily-describeWeather">Mostly cloudy</p>
               <i class="fas fa-tint"></i>Humidity:3 <br />
               <i class="fas fa-wind"></i>Wind:2
             </div>
@@ -69,11 +80,18 @@
 
           <div class="row border rounded-2">
             <div class="col-6 col-md-4">
-              <p>WEDNESDAY</p>
-              <p>February 3, 2021</p>
+              <p class="next-day">WEDNESDAY</p>
+              <p class="next-date">February 3, 2021</p>
             </div>
-            <div class="col-6 col-sm-3"><i class="fas fa-sun fa-3x"></i></div>
+            <div class="col-6 col-sm-3">
+              <i class="fas fa-sun fa-3x"></i>
+              <p>
+                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
+                <a href="#" class="daily-celsius-link">°C</a>
+              </p>
+            </div>
             <div class="col-6 col-md-5">
+              <p class="daily-describeWeather">Mostly cloudy</p>
               <i class="fas fa-tint"></i>Humidity: 3<br />
               <i class="fas fa-wind"></i> Wind: 2
             </div>
@@ -81,44 +99,72 @@
 
           <div class="row border rounded-2">
             <div class="col-6 col-md-4">
-              <p>THURSDAY</p>
-              <p>February 4, 2021</p>
+              <p class="next-day">THURSDAY</p>
+              <p class="next-date">February 4, 2021</p>
             </div>
-            <div class="col-6 col-sm-3"><i class="fas fa-sun fa-3x"></i></div>
+            <div class="col-6 col-sm-3">
+              <i class="fas fa-sun fa-3x"></i>
+              <p>
+                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
+                <a href="#" class="daily-celsius-link">°C</a>
+              </p>
+            </div>
             <div class="col-6 col-md-5">
+              <p class="daily-describeWeather">Mostly cloudy</p>
               <i class="fas fa-tint"></i>Humidity: 3<br />
               <i class="fas fa-wind"></i> Wind: 2
             </div>
           </div>
           <div class="row border rounded-2">
             <div class="col-6 col-md-4">
-              <p>FRIDAY</p>
-              <p>February 5, 2021</p>
+              <p class="next-day">FRIDAY</p>
+              <p class="next-date">February 5, 2021</p>
             </div>
-            <div class="col-6 col-sm-3"><i class="fas fa-sun fa-3x"></i></div>
+            <div class="col-6 col-sm-3">
+              <i class="fas fa-sun fa-3x"></i>
+              <p>
+                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
+                <a href="#" class="daily-celsius-link">°C</a>
+              </p>
+            </div>
             <div class="col-6 col-md-5">
+              <p class="daily-describeWeather">Mostly cloudy</p>
               <i class="fas fa-tint"></i>Humidity: 3<br />
               <i class="fas fa-wind"></i>Wind: 2
             </div>
           </div>
           <div class="row border rounded-2">
             <div class="col-6 col-md-4">
-              <p>SATURDAY</p>
-              <p>February 6, 2021</p>
+              <p class="next-day">SATURDAY</p>
+              <p class="next-date">February 6, 2021</p>
             </div>
-            <div class="col-6 col-sm-3"><i class="fas fa-sun fa-3x"></i></div>
+            <div class="col-6 col-sm-3">
+              <i class="fas fa-sun fa-3x"></i>
+              <p>
+                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
+                <a href="#" class="daily-celsius-link">°C</a>
+              </p>
+            </div>
             <div class="col-6 col-md-5">
+              <p class="daily-describeWeather">Mostly cloudy</p>
               <i class="fas fa-tint"></i>Humidity: 3<br />
               <i class="fas fa-wind"></i>Wind: 2
             </div>
           </div>
           <div class="row border rounded-2">
             <div class="col-6 col-md-4">
-              <p>SUNDAY</p>
-              <p>February 7, 2021</p>
+              <p class="next-day">SUNDAY</p>
+              <p class="next-date">February 7, 2021</p>
             </div>
-            <div class="col-6 col-sm-3"><i class="fas fa-sun fa-3x"></i></div>
+            <div class="col-6 col-sm-3">
+              <i class="fas fa-sun fa-3x"></i>
+              <p>
+                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
+                <a href="#" class="daily-celsius-link">°C</a>
+              </p>
+            </div>
             <div class="col-6 col-md-5">
+              <p class="daily-describeWeather">Mostly cloudy</p>
               <i class="fas fa-tint"></i>Humidity: 3<br />
               <i class="fas fa-wind"></i>Wind: 2
             </div>
