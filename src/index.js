@@ -44,9 +44,8 @@ p.innerHTML = `${day}` + `<br>` + `${month} ${date}, ${year}`;
 //Fahrenheit Temperature Conversion
 function fahConvert(event) {
     event.preventDefault();
-    let fahTemp = document.querySelector("#real-temp");
-    let currentTemp = fahTemp.innerHTML;
-    fahTemp.innerHTML = Math.round((currentTemp * 1.8) + 32);
+    let showFahTemp = document.querySelector("#real-temp");
+    showFahTemp.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 let fahrenheit = document.querySelector("#fahrenheit-link");
@@ -56,30 +55,20 @@ fahrenheit.addEventListener("click", fahConvert);
 //Celsius Temperature Conversion
 function celsiusConvert(event) {
     event.preventDefault();
-    let celsiusTemp = document.querySelector("#real-temp");
-    let currentTemp = celsiusTemp.innerHTML;
-    celsiusTemp.innerHTML = Math.round((currentTemp - 32) / 1.8);
+    let celsiusTemp = ((fahrenheitTemperature - 32) / 1.8);
+    let showCelsiusTemp = document.querySelector("#real-temp");
+    showCelsiusTemp.innerHTML = Math.round(celsiusTemp);
+
 }
 let celsius = document.querySelector("#celsius-link");
 celsius.addEventListener("click", celsiusConvert);
 
-
-//Display Weather
-function displayWeatherCondition(response) {
-    document.querySelector(`.currentLocation`).innerHTML = response.data.name;
-    document.querySelector(`#real-temp`).innerHTML = Math.round(
-        response.data.main.temp
-    );
-    document.querySelector(`#humidity`).innerHTML = ` Humidity: ` + response.data.main.humidity;
-    document.querySelector(`#wind`).innerHTML = ` Wind: ` + Math.round(
-        response.data.wind.speed
-    );
-    document.querySelector(`#describeWeather`).innerHTML =
-        response.data.weather[0].main;
-}
+let fahrenheitTemperature = null;
 
 
-//Search City
+
+
+//Search City with Search Engine
 function searchCity(city) {
     let apiKey = `51ea909910c3284455f83b220441cc78`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
@@ -93,28 +82,44 @@ function handleSubmit(event) {
 }
 
 
-//Get Geolocation
-function searchLocation(position) {
-    let apiKey = `51ea909910c3284455f83b220441cc78`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
-    axios.get(apiUrl).then(displayWeatherCondition);
+//Display Weather from Search Engine
+function displayWeatherCondition(response) {
+    document.querySelector(`.currentLocation`).innerHTML = response.data.name;
+    document.querySelector(`#real-temp`).innerHTML = Math.round(response.data.main.temp);
+    document.querySelector(`#describeWeather`).innerHTML = response.data.weather[0].main;
+    document.querySelector(`#humidity`).innerHTML = ` Humidity: ` + response.data.main.humidity + `%`;
+    document.querySelector(`#wind`).innerHTML = ` Wind: ` + Math.round(response.data.wind.speed) + ` km/h`;
+
+    fahrenheitTemperature = response.data.main.temp;
 }
-
-
-
-function getCurrentLocation(event) {
-    event.preventDefault();
-    navigator.geolocation.getCurrentPosition(searchLocation);
-
-    console.log(navigator.geolocation.getCurrentPosition(searchLocation));
-
-
-}
-
 
 let searchForm = document.querySelector(`#search-location`);
 searchForm.addEventListener("submit", handleSubmit);
 
+
+
+//Current Location Button-Get Coordinates
+function getCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+function searchLocation(position) {
+    let apiKey = `51ea909910c3284455f83b220441cc78`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(currentLocationWeather);
+
+}
+
+//Display Weather from Current Location Button
+function currentLocationWeather(response) {
+    document.querySelector(`.currentLocation`).innerHTML = response.data.name;
+    document.querySelector(`#real-temp`).innerHTML = Math.round(response.data.main.temp);
+    document.querySelector(`#describeWeather`).innerHTML = response.data.weather[0].main;
+    document.querySelector(`#humidity`).innerHTML = ` Humidity: ` + response.data.main.humidity + `%`;
+    document.querySelector(`#wind`).innerHTML = ` Wind: ` + Math.round(response.data.wind.speed) + ` km/h`;
+    fahrenheitTemperature = response.data.main.temp;
+}
 
 let locationButton = document.querySelector("#exact-location-btn");
 locationButton.addEventListener("click", getCurrentLocation);
