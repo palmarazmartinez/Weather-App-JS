@@ -141,7 +141,8 @@ function displayDailyWeatherConditions(response) {
                 </p>
                 </div>
                 <div class="col-6 col-sm-3">
-                <img src=${`icons/${forecast.weather[0].icon}.svg`} class=fontAwesomeIcons href=https://fontawesome.com/license>
+            
+                <img src=${`icons/${forecast.weather[0].icon}.svg`} href=https://fontawesome.com/license id=fontAwesomeIcon/>
                   <p>
                   Max: ${Math.round(forecast.temp.max)} °F<br/>
                   Min:  ${Math.round(forecast.temp.min)} °F 
