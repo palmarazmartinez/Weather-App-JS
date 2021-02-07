@@ -51,7 +51,6 @@ function fahConvert(event) {
 let fahrenheit = document.querySelector("#fahrenheit-link");
 fahrenheit.addEventListener("click", fahConvert);
 
-
 //Celsius Temperature Conversion
 function celsiusConvert(event) {
     event.preventDefault();
@@ -73,6 +72,10 @@ function searchCity(city) {
     let apiKey = `51ea909910c3284455f83b220441cc78`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayWeatherCondition);
+
+
+    apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayGeolocation);
 }
 
 function handleSubmit(event) {
@@ -85,7 +88,7 @@ function handleSubmit(event) {
 //Display Weather from Search Engine
 function displayWeatherCondition(response) {
     document.querySelector(`.currentLocation`).innerHTML = response.data.name;
-    document.querySelector(`#real-temp`).innerHTML = Math.round(response.data.main.temp);
+    document.querySelector(`#real-temp`).innerHTML = Math.round(response.data.main.temp) + `°`;
     document.querySelector(`#describeWeather`).innerHTML = response.data.weather[0].main;
     document.querySelector(`#humidity`).innerHTML = ` Humidity: ` + response.data.main.humidity + `%`;
     document.querySelector(`#wind`).innerHTML = ` Wind: ` + Math.round(response.data.wind.speed) + ` km/h`;
@@ -108,6 +111,8 @@ function searchLocation(position) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayWeatherCondition);
 
+    apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayDailyWeatherConditions);
 }
 
 
@@ -115,3 +120,55 @@ let locationButton = document.querySelector("#exact-location-btn");
 locationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("Las Vegas");
+
+
+//Display Daily Weather Conditions
+function displayDailyWeatherConditions(response) {
+
+    let forecastElement = document.querySelector(`#dailyForecast`);
+    let forecast = null;
+    forecastElement.innerHTML = null;
+
+    for (let index = 2; index < 7; index++) {
+        forecast = response.data.daily[index];
+        console.log(forecast);
+
+        forecastElement.innerHTML += `
+                 <div class="row border rounded-2">
+                <div class="col-6 col-md-4">
+                  <p class="next-day">${dailyForecastDays(forecast.dt * 1000)}
+                   
+                </p>
+                </div>
+                <div class="col-6 col-sm-3">
+                <img src=${`icons/${forecast.weather[0].icon}.svg`} class=fontAwesomeIcons href=https://fontawesome.com/license>
+                  <p>
+                  Max: ${Math.round(forecast.temp.max)} °F<br/>
+                  Min:  ${Math.round(forecast.temp.min)} °F 
+                  </p>
+                </div>
+                <div class="col-6 col-md-5">
+                  <p class="daily-describeWeather">${forecast.weather[0].main}</p>
+                  <i class="fas fa-tint"></i> Humidity: ${forecast.humidity}% <br />
+                  <i class="fas fa-wind"></i>Wind: ${Math.round(forecast.wind_speed)} km/h </div>
+            </div>`;
+    }
+}
+
+
+
+function dailyForecastDays(timestamp) {
+    let dailyForecastDay = new Date(timestamp);
+    let days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+    let nextDay = days[dailyForecastDay.getDay()];
+    return `${nextDay}`;
+}
+
+function displayGeolocation(response) {
+    let latitude = response.data.coord.lat;
+    let longitude = response.data.coord.lon;
+    let apiKey = `51ea909910c3284455f83b220441cc78`;
+
+    apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayDailyWeatherConditions);
+}

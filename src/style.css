@@ -33,6 +33,13 @@
     text-align: center;
 }
 
-#column2 {
+.column2 {
     padding: 0px 30px 10px 20px;
+}
+
+.dailyWeatherHeading {
+    text-align: center;
+    position: relative;
+    left: 80px;
+    margin-top: 20px;
 }

@@ -17,10 +17,8 @@
     <div class="container border border-secondary rounded-2">
         <div class="row">
             <div class="col">
-                <p class="todaysDate">
-                    MONDAY <br /> February 1, 2021 <br />
-                </p>
-                <p class="displayTime">10:30 PM</p>
+                <p class="todaysDate"><br /><br /></p>
+                <p class="displayTime"></p>
             </div>
             <div class="col-sm-8">
                 <form id="search-location">
@@ -35,6 +33,7 @@
                     <input type="search" class="form-control-sm text-center" id="location-input" placeholder="FIND A LOCATION" autocomplete="off" style="width: 220px; height: 35px" />
                     <input type="submit" class="search-btn" value="🔍" style="height: 35px" />
                 </form>
+                <h2 class="dailyWeatherHeading">The Next Five Days</h2>
             </div>
         </div>
         <div class="row">
@@ -44,8 +43,8 @@
                     <p class="currentTemp">
                         <a id="real-temp"></a>
                         <small class="fs-3 fw-lighter">
-                <a id="fahrenheit-link" href="#"> °F </a> |
-                <a id="celsius-link" href="#">°C</a></small
+                <a id="fahrenheit-link" href="#"> F </a> |
+                <a id="celsius-link" href="#"> C</a></small
               >
             </p>
             <i class="fas fa-cloud-sun fa-7x"></i>
@@ -57,119 +56,7 @@
           </div>
         </div>
 
-        <div class="col text-center" id="column2">
-          <h1 class="dailyWeatherHeading">The Next Six Days</h1>
-          <div class="row border rounded-2">
-            <div class="col-6 col-md-4">
-              <p class="next-day">TUESDAY</p>
-              <p class="next-date">February 2, 2021</p>
-            </div>
-            <div class="col-6 col-sm-3">
-              <i class="fas fa-sun fa-3x"></i>
-              <p>
-                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
-                <a href="#" class="daily-celsius-link">°C</a>
-              </p>
-            </div>
-            <div class="col-6 col-md-5">
-              <p class="daily-describeWeather">Mostly cloudy</p>
-              <i class="fas fa-tint"></i>Humidity:3 <br />
-              <i class="fas fa-wind"></i>Wind:2
-            </div>
-          </div>
-
-          <div class="row border rounded-2">
-            <div class="col-6 col-md-4">
-              <p class="next-day">WEDNESDAY</p>
-              <p class="next-date">February 3, 2021</p>
-            </div>
-            <div class="col-6 col-sm-3">
-              <i class="fas fa-sun fa-3x"></i>
-              <p>
-                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
-                <a href="#" class="daily-celsius-link">°C</a>
-              </p>
-            </div>
-            <div class="col-6 col-md-5">
-              <p class="daily-describeWeather">Mostly cloudy</p>
-              <i class="fas fa-tint"></i>Humidity: 3<br />
-              <i class="fas fa-wind"></i> Wind: 2
-            </div>
-          </div>
-
-          <div class="row border rounded-2">
-            <div class="col-6 col-md-4">
-              <p class="next-day">THURSDAY</p>
-              <p class="next-date">February 4, 2021</p>
-            </div>
-            <div class="col-6 col-sm-3">
-              <i class="fas fa-sun fa-3x"></i>
-              <p>
-                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
-                <a href="#" class="daily-celsius-link">°C</a>
-              </p>
-            </div>
-            <div class="col-6 col-md-5">
-              <p class="daily-describeWeather">Mostly cloudy</p>
-              <i class="fas fa-tint"></i>Humidity: 3<br />
-              <i class="fas fa-wind"></i> Wind: 2
-            </div>
-          </div>
-          <div class="row border rounded-2">
-            <div class="col-6 col-md-4">
-              <p class="next-day">FRIDAY</p>
-              <p class="next-date">February 5, 2021</p>
-            </div>
-            <div class="col-6 col-sm-3">
-              <i class="fas fa-sun fa-3x"></i>
-              <p>
-                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
-                <a href="#" class="daily-celsius-link">°C</a>
-              </p>
-            </div>
-            <div class="col-6 col-md-5">
-              <p class="daily-describeWeather">Mostly cloudy</p>
-              <i class="fas fa-tint"></i>Humidity: 3<br />
-              <i class="fas fa-wind"></i>Wind: 2
-            </div>
-          </div>
-          <div class="row border rounded-2">
-            <div class="col-6 col-md-4">
-              <p class="next-day">SATURDAY</p>
-              <p class="next-date">February 6, 2021</p>
-            </div>
-            <div class="col-6 col-sm-3">
-              <i class="fas fa-sun fa-3x"></i>
-              <p>
-                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
-                <a href="#" class="daily-celsius-link">°C</a>
-              </p>
-            </div>
-            <div class="col-6 col-md-5">
-              <p class="daily-describeWeather">Mostly cloudy</p>
-              <i class="fas fa-tint"></i>Humidity: 3<br />
-              <i class="fas fa-wind"></i>Wind: 2
-            </div>
-          </div>
-          <div class="row border rounded-2">
-            <div class="col-6 col-md-4">
-              <p class="next-day">SUNDAY</p>
-              <p class="next-date">February 7, 2021</p>
-            </div>
-            <div class="col-6 col-sm-3">
-              <i class="fas fa-sun fa-3x"></i>
-              <p>
-                XX <a href="#" class="daily-fahrenheit-link"> °F </a> |
-                <a href="#" class="daily-celsius-link">°C</a>
-              </p>
-            </div>
-            <div class="col-6 col-md-5">
-              <p class="daily-describeWeather">Mostly cloudy</p>
-              <i class="fas fa-tint"></i>Humidity: 3<br />
-              <i class="fas fa-wind"></i>Wind: 2
-            </div>
-          </div>
-        </div>
+        <div class="col text-center column2" id="dailyForecast"></div>
       </div>
     </div>
     <script src="src/index.js"></script>
