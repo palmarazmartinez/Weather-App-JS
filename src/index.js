@@ -129,7 +129,7 @@ function displayDailyWeatherConditions(response) {
     let forecast = null;
     forecastElement.innerHTML = null;
 
-    for (let index = 2; index < 7; index++) {
+    for (let index = 1; index < 6; index++) {
         forecast = response.data.daily[index];
         console.log(forecast);
 
