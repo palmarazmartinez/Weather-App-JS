@@ -85,8 +85,12 @@ function handleSubmit(event) {
 
 //Display Weather from Search Engine-Circle
 function displayWeatherCondition(response) {
+    console.log(response);
     document.querySelector(`.currentLocation`).innerHTML = response.data.name;
-    document.querySelector(`#real-temp`).innerHTML = Math.round(response.data.main.temp) + `°`;
+    document.querySelector(`#real-temp`).innerHTML = Math.round(response.data.main.temp);
+    document.querySelector(`#circleIcon`).innerHTML = `<img src=${`icons/${response.data.weather[0].icon}.svg`} href=https://fontawesome.com/license height=100px width=100px />`;
+
+
     document.querySelector(`#describeWeather`).innerHTML = response.data.weather[0].main;
     document.querySelector(`#humidity`).innerHTML = ` Humidity: ` + response.data.main.humidity + `%`;
     document.querySelector(`#wind`).innerHTML = ` Wind: ` + Math.round(response.data.wind.speed) + ` km/h`;
@@ -130,7 +134,7 @@ function displayDailyWeatherConditions(response) {
         console.log(forecast);
 
         forecastElement.innerHTML += `
-                 <div class="row border rounded-2">
+                 <div class="row border" id="styleRows">
                 <div class="col-6 col-md-4">
                   <p class="next-day">${dailyForecastDays(forecast.dt * 1000)}
                    
@@ -138,16 +142,16 @@ function displayDailyWeatherConditions(response) {
                 </div>
                 <div class="col-6 col-sm-3">
             
-                <img src=${`icons/${forecast.weather[0].icon}.svg`} href=https://fontawesome.com/license id=fontAwesomeIcon/>
-                  <p>
+                <img src=${`icons/${forecast.weather[0].icon}.svg`}  href=https://fontawesome.com/license id=fontAwesomeIcon/>
+                  <p class=minMaxTemp>
                   Max: ${Math.round(forecast.temp.max)} °F<br/>
                   Min:  ${Math.round(forecast.temp.min)} °F 
                   </p>
                 </div>
                 <div class="col-6 col-md-5">
-                  <p class="daily-describeWeather">${forecast.weather[0].main}</p>
-                  <i class="fas fa-tint"></i> Humidity: ${forecast.humidity}% <br />
-                  <i class="fas fa-wind"></i>Wind: ${Math.round(forecast.wind_speed)} km/h </div>
+                  <p class="daily-describeWeather" style=color:#91092A><i>${forecast.weather[0].main}</i></p>
+                  <i class="fas fa-tint" id="dailyHumidity"></i> Humidity: ${forecast.humidity}% <br />
+                  <i class="fas fa-wind" id="dailyWind"></i>Wind: ${Math.round(forecast.wind_speed)} km/h </div>
             </div>`;
     }
 }

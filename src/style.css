@@ -1,14 +1,15 @@
 .container {
+    background-color: #DAD8D8;
     margin: 40px;
     padding: 20px;
     max-width: 1000px;
-    max-height: 815px;
+    max-height: 900px;
     border-color: #404c58;
     font-family: 'Sora', sans-serif;
 }
 
 .rounded-circle {
-    display: block;
+    background-color: white;
     margin: 50px 0px 0px 0px;
     border-radius: 50%;
     width: 450px;
@@ -42,4 +43,49 @@
     position: relative;
     left: 80px;
     margin-top: 20px;
+}
+
+p.minMaxTemp {
+    padding: 0 auto;
+    margin: 0 auto;
+}
+
+p.next-day {
+    font-weight: bolder;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    color: #91092A;
+    font-size: 20px;
+}
+
+#styleRows {
+    border-radius: 40px;
+    background-color: white;
+}
+
+.currentLocation,
+#describeWeather {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 50px;
+    color: #91092A;
+}
+
+.currentTemp {
+    font-size: 40px;
+}
+
+#describeWeather {
+    font-style: italic;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+#fahrenheit-link,
+#celsius-link {
+    text-decoration: none;
+}
+
+.daily-describeWeather {
+    margin-top: 10px;
 }
