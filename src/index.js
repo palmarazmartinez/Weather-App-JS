@@ -13,7 +13,7 @@ let realTime = document.querySelector(`.displayTime`);
 realTime.innerHTML = (formatAMPM(new Date));
 
 
-//Months, Days, Year
+//Months, Days, Year for Weather App
 let now = new Date();
 let date = now.getDate();
 let year = now.getFullYear();
@@ -65,15 +65,13 @@ celsius.addEventListener("click", celsiusConvert);
 let fahrenheitTemperature = null;
 
 
-
-
 //Search City with Search Engine
 function searchCity(city) {
     let apiKey = `51ea909910c3284455f83b220441cc78`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayWeatherCondition);
 
-
+    //Use Search Engine to Get Weather Forecast Info. for Multiple Days
     apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayGeolocation);
 }
@@ -85,7 +83,7 @@ function handleSubmit(event) {
 }
 
 
-//Display Weather from Search Engine
+//Display Weather from Search Engine-Circle
 function displayWeatherCondition(response) {
     document.querySelector(`.currentLocation`).innerHTML = response.data.name;
     document.querySelector(`#real-temp`).innerHTML = Math.round(response.data.main.temp) + `°`;
@@ -99,7 +97,6 @@ let searchForm = document.querySelector(`#search-location`);
 searchForm.addEventListener("submit", handleSubmit);
 
 
-
 //Current Location Button-Get Coordinates
 function getCurrentLocation(event) {
     event.preventDefault();
@@ -111,6 +108,7 @@ function searchLocation(position) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayWeatherCondition);
 
+    //Get Weather Forecast Info. for Multiple Days
     apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayDailyWeatherConditions);
 }
@@ -118,8 +116,6 @@ function searchLocation(position) {
 
 let locationButton = document.querySelector("#exact-location-btn");
 locationButton.addEventListener("click", getCurrentLocation);
-
-searchCity("Las Vegas");
 
 
 //Display Daily Weather Conditions
@@ -129,7 +125,7 @@ function displayDailyWeatherConditions(response) {
     let forecast = null;
     forecastElement.innerHTML = null;
 
-    for (let index = 1; index < 6; index++) {
+    for (let index = 0; index < 6; index++) {
         forecast = response.data.daily[index];
         console.log(forecast);
 
@@ -157,14 +153,19 @@ function displayDailyWeatherConditions(response) {
 }
 
 
-
+//Daily Forecast Days Function to Show Multiple Days
 function dailyForecastDays(timestamp) {
     let dailyForecastDay = new Date(timestamp);
     let days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
-    let nextDay = days[dailyForecastDay.getDay()];
-    return `${nextDay}`;
+    for (index = 0; index < 6; index++) {
+        let nextDay = days[(dailyForecastDay.getDay() + 1 + index) % 7];
+        console.log(nextDay);
+        return `${nextDay}`;
+      
+    }
 }
 
+//Get Location to Show Daily Forecast Information for Multiple Days
 function displayGeolocation(response) {
     let latitude = response.data.coord.lat;
     let longitude = response.data.coord.lon;
@@ -173,3 +174,6 @@ function displayGeolocation(response) {
     apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayDailyWeatherConditions);
 }
+
+//Default City
+searchCity("Las Vegas");
