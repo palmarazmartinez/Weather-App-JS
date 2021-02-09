@@ -113,7 +113,7 @@ function searchLocation(position) {
     axios.get(apiUrl).then(displayWeatherCondition);
 
     //Get Weather Forecast Info. for Multiple Days
-    apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+    apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayDailyWeatherConditions);
 }
 
@@ -130,7 +130,7 @@ function displayDailyWeatherConditions(response) {
     forecastElement.innerHTML = null;
 
     for (let index = 0; index < 6; index++) {
-        forecast = response.data.daily[index];
+        forecast = response.data.daily[index+1];
         console.log(forecast);
 
         forecastElement.innerHTML += `
@@ -161,8 +161,8 @@ function displayDailyWeatherConditions(response) {
 function dailyForecastDays(timestamp) {
     let dailyForecastDay = new Date(timestamp);
     let days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
-    for (index = 0; index < 6; index++) {
-        let nextDay = days[(dailyForecastDay.getDay() + 1 + index) % 7];
+    for (index = 0; index < 6; index+=0) {
+        let nextDay = days[(dailyForecastDay.getDay()+index) % 7];
         console.log(nextDay);
         return `${nextDay}`;
       
