@@ -51,13 +51,13 @@ function fahConvert(event) {
 let fahrenheit = document.querySelector("#fahrenheit-link");
 fahrenheit.addEventListener("click", fahConvert);
 
+
 //Celsius Temperature Conversion
 function celsiusConvert(event) {
     event.preventDefault();
     let celsiusTemp = ((fahrenheitTemperature - 32) / 1.8);
     let showCelsiusTemp = document.querySelector("#real-temp");
     showCelsiusTemp.innerHTML = Math.round(celsiusTemp);
-
 }
 let celsius = document.querySelector("#celsius-link");
 celsius.addEventListener("click", celsiusConvert);
@@ -143,15 +143,15 @@ function displayDailyWeatherConditions(response) {
                 <div class="col-6 col-sm-3">
             
                 <img src=${`icons/${forecast.weather[0].icon}.svg`}  href=https://fontawesome.com/license id=fontAwesomeIcon/>
-                  <p class=minMaxTemp>
+                  <p class="minMaxTemp" style=color:#5E5E5E;font-size:15px;margin-top:8px>
                   Max: ${Math.round(forecast.temp.max)} °F<br/>
                   Min:  ${Math.round(forecast.temp.min)} °F 
                   </p>
                 </div>
                 <div class="col-6 col-md-5">
-                  <p class="daily-describeWeather" style=color:#91092A><i>${forecast.weather[0].main}</i></p>
-                  <i class="fas fa-tint" id="dailyHumidity"></i> Humidity: ${forecast.humidity}% <br />
-                  <i class="fas fa-wind" id="dailyWind"></i>Wind: ${Math.round(forecast.wind_speed)} km/h </div>
+                  <p class="daily-describeWeather" style=color:#5E5E5E;font-size:20px><i>${forecast.weather[0].main}</i></p>
+                  <p class="dailyHumidityText" style="color:#154FAB;margin-bottom:0px"> <i class="fas fa-tint" id="dailyHumidityIcon"></i> Humidity: ${forecast.humidity}% </p>
+                  <p class="dailyWindText" style=color:#154FAB> <i class="fas fa-wind" id="dailyWindIcon"></i> Wind: ${Math.round(forecast.wind_speed)} km/h </p></div>
             </div>`;
     }
 }
@@ -161,11 +161,11 @@ function displayDailyWeatherConditions(response) {
 function dailyForecastDays(timestamp) {
     let dailyForecastDay = new Date(timestamp);
     let days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
-    for (index = 0; index < 6; index+=0) {
+    for (index = 0; index < 6; index += 0) {
         let nextDay = days[(dailyForecastDay.getDay()+index) % 7];
         console.log(nextDay);
         return `${nextDay}`;
-      
+        
     }
 }
 

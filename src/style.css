@@ -1,91 +1,122 @@
-.container {
-    background-color: #DAD8D8;
-    margin: 40px;
-    padding: 20px;
-    max-width: 1000px;
-    max-height: 900px;
-    border-color: #404c58;
-    font-family: 'Sora', sans-serif;
-}
-
-.rounded-circle {
-    background-color: white;
-    margin: 50px 0px 0px 0px;
-    border-radius: 50%;
-    width: 450px;
-    height: 450px;
-    border-style: solid;
-    border-color: #404c58;
-}
-
-#dailyWeatherHeading {
-    padding-top: 40px;
-}
-
-.blue-drop-pin {
-    padding: 0px;
-}
-
-#TodaysDate {
-    text-align: center;
-}
-
-#realWeatherInfo {
-    text-align: center;
-}
-
-.column2 {
-    padding: 0px 30px 10px 20px;
-}
-
-.dailyWeatherHeading {
-    text-align: center;
-    position: relative;
-    left: 80px;
-    margin-top: 20px;
-}
-
-p.minMaxTemp {
-    padding: 0 auto;
-    margin: 0 auto;
-}
-
-p.next-day {
-    font-weight: bolder;
-    margin-top: 40px;
-    margin-bottom: 0px;
-    color: #91092A;
-    font-size: 20px;
-}
-
-#styleRows {
-    border-radius: 40px;
-    background-color: white;
-}
-
-.currentLocation,
-#describeWeather {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 50px;
-    color: #91092A;
-}
-
-.currentTemp {
-    font-size: 40px;
-}
-
-#describeWeather {
-    font-style: italic;
-    font-size: 30px;
-    margin-top: 10px;
-}
-
-#fahrenheit-link,
-#celsius-link {
-    text-decoration: none;
-}
-
-.daily-describeWeather {
-    margin-top: 10px;
-}
+    .container {
+        background-image: linear-gradient(-225deg, #A445B2 10%, #D41872 52%, #FF0066 100%);
+        margin: 40px;
+        padding: 20px;
+        max-width: 1000px;
+        max-height: 900px;
+        border-color: #404c58;
+        font-family: 'Sora', sans-serif;
+    }
+    
+    .rounded-circle {
+        background-color: white;
+        margin: 100px 0px 0px 0px;
+        border-radius: 50%;
+        width: 450px;
+        height: 450px;
+        border-style: solid;
+        border-width: medium;
+        border-color: #E98B67;
+        font-family: 'Sora', sans-serif;
+    }
+    
+    .blue-drop-pin {
+        padding: 0px;
+    }
+    
+    .todaysDate,
+    .displayTime {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bolder;
+        margin: 0 auto;
+        color: #F0EEEF;
+    }
+    
+    #realWeatherInfo {
+        text-align: center;
+        color: #E6815E;
+    }
+    
+    .currentTemp {
+        font-size: 40px;
+    }
+    
+    .currentLocation {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 50px;
+        color: #A90C2F;
+    }
+    
+    #describeWeather {
+        text-align: center;
+        font-style: italic;
+        font-size: 30px;
+        margin-top: 10px;
+        color: #5E5E5E;
+    }
+    
+    #fahrenheit-link,
+    #celsius-link {
+        text-decoration: none;
+        color: #E6815E;
+        font-weight: bolder;
+    }
+    
+    #celsius-link:hover,
+    #fahrenheit-link:hover {
+        text-decoration: none;
+        color: #5E5E5E;
+    }
+    
+    .column2 {
+        padding: 0px 30px 10px 20px;
+    }
+    
+    .dailyWeatherHeading {
+        padding-top: 10px;
+        text-align: center;
+        position: relative;
+        left: 80px;
+        margin-top: 20px;
+        color: #F0EEEF;
+    }
+    
+    p.minMaxTemp {
+        padding: 0 auto;
+        margin: 0 auto;
+    }
+    
+    p.next-day {
+        font-weight: bolder;
+        margin-top: 40px;
+        margin-bottom: 0px;
+        color: #5E5E5E;
+        font-size: 20px;
+    }
+    
+    #styleRows {
+        border-radius: 40px;
+        background-color: white;
+    }
+    
+    .daily-describeWeather {
+        margin-top: 10px;
+    }
+    
+    #humidIcon,
+    #windIcon {
+        position: relative;
+        margin-left: -100px;
+        color: #154FAB;
+    }
+    
+    #humidity,
+    #wind {
+        position: relative;
+        margin-left: 30px;
+        margin-bottom: 0px;
+        margin-top: -25px;
+        color: #154FAB;
+    }
