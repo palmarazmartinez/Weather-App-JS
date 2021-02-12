@@ -149,7 +149,7 @@ function displayDailyWeatherConditions(response) {
                   </p>
                 </div>
                 <div class="col-6 col-md-5">
-                  <p class="daily-describeWeather" style=color:#5E5E5E;font-size:20px><i>${forecast.weather[0].main}</i></p>
+                  <p class="daily-describeWeather" style=color:#5E5E5E;font-size:22px><i>${forecast.weather[0].main}</i></p>
                   <p class="dailyHumidityText" style="color:#154FAB;margin-bottom:0px"> <i class="fas fa-tint" id="dailyHumidityIcon"></i> Humidity: ${forecast.humidity}% </p>
                   <p class="dailyWindText" style=color:#154FAB> <i class="fas fa-wind" id="dailyWindIcon"></i> Wind: ${Math.round(forecast.wind_speed)} km/h </p></div>
             </div>`;

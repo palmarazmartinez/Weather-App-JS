@@ -22,7 +22,7 @@
             </div>
             <div class="col-sm-8">
                 <form id="search-location">
-                    <button type="button" class="btn btn-outline-dark btn-sm" id="exact-location-btn" style="height: 35px; background-color: #ffffff">
+                    <button type="button" class="btn btn-outline-light btn-sm" id="exact-location-btn" style="height: 35px; background-color: #ffffff">
               <img
                 src="images/location.png"
                 alt="blue-drop-pin"
@@ -30,8 +30,8 @@
                 style="width: 15px; background-color: #ffffff"
               />
             </button>
-                    <input type="search" class="form-control-sm text-center" id="location-input" placeholder="FIND A LOCATION" autocomplete="off" style="width: 220px; height: 35px" />
-                    <input type="submit" class="search-btn" value="🔍" style="height: 35px; background-color: #ffffff" />
+                    <input type="search" class="form-control-sm text-center border-info" id="location-input" placeholder="FIND A LOCATION" autocomplete="off" style="width: 220px; height: 35px" />
+                    <input type="submit" class="search-btn btn-outline-light btn-sm" value="🔍" style="height: 35px; background-color: #ffffff" />
                 </form>
                 <h2 class="dailyWeatherHeading">The Next Six Days</h2>
             </div>
@@ -55,23 +55,23 @@
             <i class="fas fa-wind" id="windIcon"></i>
             <p id="wind"></p>
             <br />
+            <footer class="coder">
+              <i
+                ><a
+                  href="https://github.com/palmarazmartinez/Weather-App-v2.0"
+                  target="_blank"
+                  class="gitLink"
+                  >Open source code</a
+                >
+                by Perla Almaraz</i
+              >
+            </footer>
           </div>
         </div>
 
         <div class="col text-center column2" id="dailyForecast"></div>
       </div>
-      <footer class="Coder">
-        <i
-          ><a
-            href="https://github.com/palmarazmartinez/Weather-App-v2.0"
-            target="_blank"
-            >Open source code</a
-          >
-          by Perla Almaraz</i
-        >
-      </footer>
     </div>
-
     <script src="src/index.js"></script>
   </body>
 </html>

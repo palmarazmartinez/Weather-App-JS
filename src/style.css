@@ -34,28 +34,45 @@
         color: #F0EEEF;
     }
     
+    .currentLocation {
+        text-align: center;
+        margin-top: 45px;
+        font-size: 55px;
+        color: #A90C2F;
+    }
+    
     #realWeatherInfo {
         text-align: center;
         color: #E6815E;
     }
     
     .currentTemp {
-        font-size: 40px;
-    }
-    
-    .currentLocation {
-        text-align: center;
-        margin-top: 40px;
-        font-size: 50px;
-        color: #A90C2F;
+        font-size: 45px;
     }
     
     #describeWeather {
         text-align: center;
         font-style: italic;
-        font-size: 30px;
+        font-size: 32px;
         margin-top: 10px;
         color: #5E5E5E;
+    }
+    
+    #humidIcon,
+    #windIcon {
+        position: relative;
+        margin-left: -120px;
+        color: #154FAB;
+    }
+    
+    #humidity,
+    #wind {
+        position: relative;
+        margin-left: 30px;
+        margin-bottom: 0px;
+        margin-top: -25px;
+        color: #154FAB;
+        font-size: 18px;
     }
     
     #fahrenheit-link,
@@ -106,18 +123,17 @@
         margin-top: 10px;
     }
     
-    #humidIcon,
-    #windIcon {
-        position: relative;
-        margin-left: -100px;
-        color: #154FAB;
+    .coder {
+        color: #48CCEE;
+        font-weight: bolder;
+        margin-top: 175px;
+        margin-right: 150px;
     }
     
-    #humidity,
-    #wind {
-        position: relative;
-        margin-left: 30px;
-        margin-bottom: 0px;
-        margin-top: -25px;
-        color: #154FAB;
+    .gitLink {
+        color: #F0EEEF;
+    }
+    
+    .gitLink:hover {
+        color: #109339;
     }
