@@ -132,8 +132,10 @@
            font-weight: bolder;
            margin-top: 175px;
            margin-right: 150px;
+           font-size: 14px;
+           text-align: center;
        }
-       
+
        .gitLink {
            color: #F0EEEF;
        }
