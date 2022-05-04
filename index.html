@@ -15,12 +15,12 @@
 
 <body>
     <div class="container border border-secondary rounded-3">
-        <div class="row">
-            <div class="col">
+      <div class="row align-items-start">
+      <div class="col-md-4">
                 <p class="todaysDate"><br /><br /></p>
                 <p class="displayTime"></p>
             </div>
-            <div class="col-sm-8">
+            <div class="col-md-8">
                 <form id="search-location">
                     <button type="button" class="btn btn-outline-light btn-sm" id="exact-location-btn" style="height: 35px; background-color: #ffffff">
               <img
@@ -33,10 +33,16 @@
                     <input type="search" class="form-control-sm text-center border-info" id="location-input" placeholder="FIND A LOCATION" autocomplete="off" style="width: 220px; height: 35px" />
                     <input type="submit" class="search-btn btn-outline-light btn-sm" value="🔍" style="height: 35px; background-color: #ffffff" />
                 </form>
-                <h2 class="dailyWeatherHeading">The Next Six Days</h2>
             </div>
+            <div class="row">
+              <div class="col-12">
+                <h2 class="dailyWeatherHeading">The Next Six Days</h2>
+              </div>
+          </div>
         </div>
-        <div class="row">
+         
+        
+          <div class="row">
             <div class="col" id="realWeatherInfo">
                 <div class="rounded-circle">
                     <h1 class="currentLocation"></h1>
@@ -55,23 +61,29 @@
             <i class="fas fa-wind" id="windIcon"></i>
             <p id="wind"></p>
             <br />
-            <footer class="coder">
-              <i
-                ><a
-                  href="https://github.com/palmarazmartinez/Weather-App-v2.0"
-                  target="_blank"
-                  class="gitLink"
-                  >Open source code</a
-                >
-                by Perla Almaraz </br> Website hosted on
-                <a href="https://quizzical-shannon-c13ff6.netlify.app/" target="_blank" class="gitLink">Netlify</a></i
-              >
-            </footer>
+            
+          
           </div>
         </div>
-
-        <div class="col text-center column2" id="dailyForecast"></div>
+        
+        <div class="col text-center column2" id="dailyForecast">
+        </div>
       </div>
+      <div class="row"> 
+        <footer class="coder">
+       <i
+         ><a
+           href="https://github.com/palmarazmartinez/Weather-App-v2.0"
+           target="_blank"
+           class="gitLink"
+           >Open source code</a
+         >
+         by Perla Almaraz-Martinez </br> Website hosted on
+         <a href="https://quizzical-shannon-c13ff6.netlify.app/" target="_blank" class="gitLink">Netlify</a></i
+       >
+     </footer>
+   </div>
+
     </div>
     <script src="src/index.js"></script>
   </body>

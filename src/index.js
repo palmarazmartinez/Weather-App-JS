@@ -134,21 +134,19 @@ function displayDailyWeatherConditions(response) {
         console.log(forecast);
 
         forecastElement.innerHTML += `
-                 <div class="row border" id="styleRows">
-                <div class="col-6 col-md-4">
-                  <p class="next-day">${dailyForecastDays(forecast.dt * 1000)}
-                   
+            <div class="row border" id="styleRows">
+                <div class="col-md-4">
+                <p class="next-day">${dailyForecastDays(forecast.dt * 1000)}   
                 </p>
                 </div>
-                <div class="col-6 col-sm-3">
-            
+                <div class="col-md-4">
                 <img src=${`icons/${forecast.weather[0].icon}.svg`}  href=https://fontawesome.com/license id=fontAwesomeIcon/>
                   <p class="minMaxTemp" style=color:#5E5E5E;font-size:15px;margin-top:8px>
                   Max: ${Math.round(forecast.temp.max)} °F<br/>
                   Min:  ${Math.round(forecast.temp.min)} °F 
                   </p>
                 </div>
-                <div class="col-6 col-md-5">
+                <div class="col-md-4">
                   <p class="daily-describeWeather" style=color:#5E5E5E;font-size:22px><i>${forecast.weather[0].main}</i></p>
                   <p class="dailyHumidityText" style="color:#154FAB;margin-bottom:0px"> <i class="fas fa-tint" id="dailyHumidityIcon"></i> Humidity: ${forecast.humidity}% </p>
                   <p class="dailyWindText" style=color:#154FAB> <i class="fas fa-wind" id="dailyWindIcon"></i> Wind: ${Math.round(forecast.wind_speed)} km/h </p></div>
