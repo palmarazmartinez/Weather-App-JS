@@ -22,9 +22,9 @@
                 <p class="todaysDate"></p>
                 <p class="displayTime"></p>
             </div>
-            <div class="col-md-8">
-                <form id="search-location">
-                    <button type="button" class="btn btn-outline-light btn-sm" id="exact-location-btn" style="height: 35px; background-color: #ffffff">
+          
+            <div class="col-md-8 searchBox">
+              <button type="button" class="btn btn-outline-light btn-sm" id="exact-location-btn" style="height: 35px; background-color: #ffffff; ">
               <img
                 src="images/location.png"
                 alt="blue-drop-pin"
@@ -32,17 +32,20 @@
                 style="width: 15px; background-color: #ffffff"
               />
             </button>
-                    <input type="search" class="form-control-sm text-center border-info" id="location-input" placeholder="FIND A LOCATION" autocomplete="off" style="width: 220px; height: 35px" />
-                    <input type="submit" class="search-btn btn-outline-light btn-sm" value="🔍" style="height: 35px; background-color: #ffffff" />
-                </form>
+            <form class="form-inline searchBox" id="search-location">
+                <input class="form-control mr-sm-2" type="search" id="location-input" placeholder="FIND A LOCATION" autocomplete="off" aria-label="Search" style="width: 200px; height: 35px" >
+                <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="SEARCH" style="height: 35px; color: #ffffff; background-color: #0F9338;" >
+              </form>
             </div>
+        </div>
+         
             
             <div class="row">
               <div class="col-12">
                 <h2 class="dailyWeatherHeading">The Next Six Days</h2>
               </div>
-          </div>
-        </div>
+            </div>
+    
          
         
           <div class="row">
@@ -63,14 +66,11 @@
             <i class="fas fa-wind" id="windIcon"></i>
             <p id="wind"></p>
             <br />
-            
-          
+            </div>
           </div>
-        </div>
         
-        <div class="col text-center column2" id="dailyForecast">
-        </div>
-      </div>
+      <div class="col text-center column2" id="dailyForecast"></div>
+   
       <div class="row"> 
         <footer class="coder">
        <i
