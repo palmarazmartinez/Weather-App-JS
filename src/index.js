@@ -134,22 +134,22 @@ function displayDailyWeatherConditions(response) {
         console.log(forecast);
 
         forecastElement.innerHTML += `
-            <div class="row border" id="styleRows">
+            <div class="row border border-dark" id="styleRows">
                 <div class="col-md-4">
                 <p class="next-day">${dailyForecastDays(forecast.dt * 1000)}   
                 </p>
                 </div>
                 <div class="col-md-4">
-                <img src=${`icons/${forecast.weather[0].icon}.svg`}  href=https://fontawesome.com/license id=fontAwesomeIcon/>
-                  <p class="minMaxTemp" style=color:#5E5E5E;font-size:15px;margin-top:8px>
+                <img src=${`icons/${forecast.weather[0].icon}.svg`}  href=https://fontawesome.com/license id=fontAwesomeIcon style="margin-top:7px"/>
+                  <p class="minMaxTemp" style="color:#5E5E5E;font-size:18px;margin-top:8px;font-weight:500">
                   Max: ${Math.round(forecast.temp.max)} °F<br/>
                   Min:  ${Math.round(forecast.temp.min)} °F 
                   </p>
                 </div>
                 <div class="col-md-4">
-                  <p class="daily-describeWeather" style=color:#5E5E5E;font-size:22px><i>${forecast.weather[0].main}</i></p>
-                  <p class="dailyHumidityText" style="color:#154FAB;margin-bottom:0px"> <i class="fas fa-tint" id="dailyHumidityIcon"></i> Humidity: ${forecast.humidity}% </p>
-                  <p class="dailyWindText" style=color:#154FAB> <i class="fas fa-wind" id="dailyWindIcon"></i> Wind: ${Math.round(forecast.wind_speed)} km/h </p></div>
+                  <p class="daily-describeWeather"<i>${forecast.weather[0].main}</i></p>
+                  <p class="dailyHumidityText" style="color:#154FAB;margin-bottom:0px;font-weight:600"> <i class="fas fa-tint" id="dailyHumidityIcon"></i> Humidity: ${forecast.humidity}% </p>
+                  <p class="dailyWindText" style="color:#154FAB;font-size:16px;font-weight:900"> <i class="fas fa-wind" id="dailyWindIcon"></i> Wind: ${Math.round(forecast.wind_speed)} km/h </p></div>
             </div>`;
     }
 }

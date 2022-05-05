@@ -8,16 +8,18 @@
     <link href="src/style.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/599f0ec957.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Weather App 🌦</title>
 </head>
 
 <body>
-    <div class="container border border-secondary rounded-3">
+    <div class="container">
       <div class="row align-items-start">
       <div class="col-md-4">
-                <p class="todaysDate"><br /><br /></p>
+                <p class="todaysDate"></p>
                 <p class="displayTime"></p>
             </div>
             <div class="col-md-8">
@@ -56,7 +58,6 @@
             </p>
             <i id="circleIcon"></i>
             <p id="describeWeather"></p>
-            <p class="temperatureInfo"></p>
             <i class="fas fa-tint" id="humidIcon"></i>
             <p id="humidity"></p>
             <i class="fas fa-wind" id="windIcon"></i>
