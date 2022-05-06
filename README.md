@@ -16,7 +16,7 @@ This weather application was created as part of the SheCodes Plus workshop. A ke
 
 ---
 
-Installation
+*Installation*
 
 Weather-App-JS required the installation of Axios in order to connect to the OpenWeather API.
 
