@@ -20,6 +20,23 @@
             display: flex;
         }
 
+        .blue-drop-pin {
+            padding: 0px;
+        }
+
+        #exact-location-btn {
+        height: 35px; 
+        margin-right: 4px; 
+        background-color: #ffffff;  
+        }
+
+        #search-btn{
+        height: 35px; 
+        color: #ffffff; 
+        background-color: #0F9338;
+        margin: 0px 0px 0px 4px;
+        }
+
        .todaysDate,
        .displayTime {
            text-align: center;
@@ -152,3 +169,32 @@
        .gitLink:hover {
            color: #109339;
        }
+
+      
+       /* Media Query */
+       @media (max-width: 576px) {
+            .displayTime {
+                 margin-bottom: 15px;
+             }
+        
+             #exact-location-btn {
+                 margin-left: 70px;
+            }
+      
+             .dailyWeatherHeading {
+                 display: none;
+            }
+       
+            .rounded-circle {
+                 margin: 30px 0px 0px 0px;
+             }
+    
+             .column2 {
+                 display: none;
+             }
+       
+             .coder {
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
