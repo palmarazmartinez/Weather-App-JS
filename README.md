@@ -10,7 +10,7 @@
 
 ---
 
-<u>**Introduction**</u>
+**Introduction**
 
 This weather application was created as part of the SheCodes Plus workshop. A key requirement of this weather application was to show our HTML, CSS, Bootstrap, and JavaScript skills. The weather application had to include the following information: real weather icons, real weather descriptions, real temperature data, and colors or gradients. Weather-App-JS also inlcudes the current day and time, weather data in Fahrenheit for the next six days, a pin drop to find weather data for a user's exact location, and a basic responsive design. This weather application is also hosted on Netlify and can be viewed here: https://quizzical-shannon-c13ff6.netlify.app/
 
