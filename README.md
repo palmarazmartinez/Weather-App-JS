@@ -3,11 +3,8 @@
 Table of Contents
 ---------------------
  * Introduction
-* Installation
- * Requirements
- * Recommended modules
  * Installation
- * Configuration
+ * Using Weather-App-JS
  * Troubleshooting
  * FAQ
  * Maintainers
@@ -18,5 +15,7 @@ This weather application was created as part of the SheCodes Plus workshop. A ke
 
 * Installation
 Weather-App-JS required the installation of Axios in order to connect to the OpenWeather API. 
-  
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    Using jsDelivr CDN: <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+ * Using Weather-App-JS
+ 

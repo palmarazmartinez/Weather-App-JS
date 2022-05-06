@@ -18,6 +18,7 @@
 
         .searchBox {
             display: flex;
+            margin-top: 20px;
         }
 
         .blue-drop-pin {
@@ -27,6 +28,7 @@
         #exact-location-btn {
         height: 35px; 
         margin-right: 4px; 
+        margin-top: 20px;
         background-color: #ffffff;  
         }
 
@@ -177,8 +179,12 @@
                  margin-bottom: 15px;
              }
         
+            .searchBox{
+                margin-top: 10px;
+            }
              #exact-location-btn {
                  margin-left: 70px;
+                 margin-top: 10px;
             }
       
              .dailyWeatherHeading {
